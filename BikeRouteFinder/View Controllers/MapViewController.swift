@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController {
 
-    private lazy var networkClient = DefaultNetworkClient(requestBuilder: DefaultRequestBuilder(scheme: .http, host: "http://207.154.252.142", port: 3000))
+    private lazy var networkClient = DefaultNetworkClient(requestBuilder: DefaultRequestBuilder(scheme: .http, host: "207.154.252.142", port: 3000))
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
@@ -43,6 +43,11 @@ class MapViewController: UIViewController {
     }
     
     private func draw(route: Route) {
-        
+        mapView.removeOverlays(mapView.overlays)
+        let coordinateGroups = route.segments.map { [$0.start, $0.end] }
+        coordinateGroups.forEach {
+            let route = MKPolyline(coordinates: $0, count: 2)
+            mapView.add(route)
+        }
     }
 }

@@ -32,7 +32,7 @@ internal final class DefaultNetworkClient: NetworkClient {
     /// - Returns a RxSwift Single generic over APIRequest ResponseType associatedType.
     func perform<Request: APIRequest>(request: Request, completion: @escaping (Result<Request.ResponseType>) -> ()) {
         let urlRequest = self.requestBuilder.prepare(request)
-        self.session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
+        session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
             if let error = error {
                 DispatchQueue.main.async {
                     completion(.error(RequestError.osError(error)))

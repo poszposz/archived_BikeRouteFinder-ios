@@ -100,9 +100,9 @@
 		3836A4EB210E344A008E51AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3836A4EC210E3459008E51AA /* Segment.swift */,
-				3836A4EE210E3462008E51AA /* Route.swift */,
 				3836A4FF210E5216008E51AA /* Result.swift */,
+				3836A4EE210E3462008E51AA /* Route.swift */,
+				3836A4EC210E3459008E51AA /* Segment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
