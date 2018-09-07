@@ -18,6 +18,7 @@
 		3836A500210E5216008E51AA /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836A4FF210E5216008E51AA /* Result.swift */; };
 		3836A502210E52B7008E51AA /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836A501210E52B7008E51AA /* RequestError.swift */; };
 		3836A504210E5493008E51AA /* RouteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836A503210E5493008E51AA /* RouteRequest.swift */; };
+		385F364A212052B80046ED94 /* GraphVisualiztionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F3649212052B80046ED94 /* GraphVisualiztionRequest.swift */; };
 		38F21DBB20E7BF28000D07C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F21DBA20E7BF28000D07C9 /* AppDelegate.swift */; };
 		38F21DBD20E7BF28000D07C9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F21DBC20E7BF28000D07C9 /* MapViewController.swift */; };
 		38F21DC220E7BF2F000D07C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F21DC120E7BF2F000D07C9 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		3836A4FF210E5216008E51AA /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		3836A501210E52B7008E51AA /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		3836A503210E5493008E51AA /* RouteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteRequest.swift; sourceTree = "<group>"; };
+		385F3649212052B80046ED94 /* GraphVisualiztionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphVisualiztionRequest.swift; sourceTree = "<group>"; };
 		38F21DB720E7BF28000D07C9 /* BikeRouteFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeRouteFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F21DBA20E7BF28000D07C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38F21DBC20E7BF28000D07C9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				3836A4F4210E511E008E51AA /* APIRequest.swift */,
 				3836A503210E5493008E51AA /* RouteRequest.swift */,
+				385F3649212052B80046ED94 /* GraphVisualiztionRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				3836A504210E5493008E51AA /* RouteRequest.swift in Sources */,
 				3836A4FA210E511E008E51AA /* DefaultNetworkClient.swift in Sources */,
 				3836A4FC210E511E008E51AA /* RequestBuilder.swift in Sources */,
+				385F364A212052B80046ED94 /* GraphVisualiztionRequest.swift in Sources */,
 				3836A4ED210E3459008E51AA /* Segment.swift in Sources */,
 				3836A4FD210E511E008E51AA /* DefaultRequestBuilder.swift in Sources */,
 				3836A4F3210E4F43008E51AA /* CLLocationCoordinate2D.swift in Sources */,
@@ -431,8 +435,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M3573A3P7;
+				DEVELOPMENT_TEAM = WB824S35DS;
 				INFOPLIST_FILE = BikeRouteFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,8 +454,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6M3573A3P7;
+				DEVELOPMENT_TEAM = WB824S35DS;
 				INFOPLIST_FILE = BikeRouteFinder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

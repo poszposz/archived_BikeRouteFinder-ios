@@ -10,7 +10,7 @@ import Foundation
 internal struct DefaultRequestBuilder: RequestBuilder {
     
     /// Dafult timeout for all requests.
-    private let defaultTimeoutInterval: TimeInterval = 30
+    private let defaultTimeoutInterval: TimeInterval = 90
     
     /// URL scheme determining whether use http or https.
     /// - SeeAlso: Scheme

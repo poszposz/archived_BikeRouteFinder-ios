@@ -62,7 +62,8 @@ internal final class DefaultNetworkClient: NetworkClient {
                 DispatchQueue.main.async {
                     completion(.success(responseData))
                 }
-            } catch {
+            } catch let error {
+                print(error)
                 DispatchQueue.main.async {
                     completion(.error(RequestError.corruptedResponse))
                 }

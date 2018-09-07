@@ -11,10 +11,13 @@ import MapKit
 
 class MapViewController: UIViewController {
 
-    private lazy var networkClient = DefaultNetworkClient(requestBuilder: DefaultRequestBuilder(scheme: .http, host: "207.154.252.142", port: 3000))
+    /// "207.154.252.142"
+    /// "172.19.44.82"
+    private lazy var networkClient = DefaultNetworkClient(requestBuilder: DefaultRequestBuilder(scheme: .http, host: "172.19.44.82", port: 3000))
     
     private lazy var mapView: MKMapView = {
         let mapView = MKMapView()
+        mapView.delegate = self
         mapView.translatesAutoresizingMaskIntoConstraints = false
         return mapView
     }()
@@ -31,23 +34,52 @@ class MapViewController: UIViewController {
     }
     
     private func downloadMapData(start: String, end: String) {
-        let request = RouteRequest(startLocation: start, endLocation: end)
+        let request = GraphVisualiztionRequest(startLocation: start, endLocation: end)
+//        let request = RouteRequest(startLocation: start, endLocation: end)
         networkClient.perform(request: request) { [weak self] result in
             switch result {
-            case .success(let route):
-                self?.draw(route: route)
+            case .success(let routes):
+                self?.draw(routes: routes)
             case .error(let error):
                 print("Error: " + error.localizedDescription)
             }
         }
     }
     
+    private func draw(routes: [Route]) {
+        routes.forEach {
+            self.draw(route: $0)
+        }
+    }
+    
     private func draw(route: Route) {
-        mapView.removeOverlays(mapView.overlays)
-        let coordinateGroups = route.segments.map { [$0.start, $0.end] }
+        let region = MKCoordinateRegion(center: route.startPoint, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        mapView.setRegion(region, animated: true)
+        draw(segments: route.segments)
+        let startAnnotation = MKPointAnnotation()
+        startAnnotation.coordinate = route.startPoint
+        mapView.addAnnotation(startAnnotation)
+        let endAnnotation = MKPointAnnotation()
+        endAnnotation.coordinate = route.endPoint
+        mapView.addAnnotation(endAnnotation)
+    }
+    
+    private func draw(segments: [Segment]) {
+        let coordinateGroups = segments.map { [$0.start, $0.end] }
         coordinateGroups.forEach {
             let route = MKPolyline(coordinates: $0, count: 2)
             mapView.add(route)
         }
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.fillColor = .blue
+        renderer.strokeColor = .blue
+        renderer.lineWidth = 3
+        return renderer
     }
 }

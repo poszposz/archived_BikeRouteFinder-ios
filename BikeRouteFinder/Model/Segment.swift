@@ -45,8 +45,8 @@ extension Segment: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         start = try container.decode(CLLocationCoordinate2D.self, forKey: .start)
         end = try container.decode(CLLocationCoordinate2D.self, forKey: .end)
-        isBeginning = try container.decode(Bool.self, forKey: .isBeginning)
-        isEnding = try container.decode(Bool.self, forKey: .isEnding)
+        isBeginning = try container.decodeIfPresent(Bool.self, forKey: .isBeginning) ?? false
+        isEnding = try container.decodeIfPresent(Bool.self, forKey: .isEnding) ?? false
         length = try container.decode(Int.self, forKey: .length)
         name = try container.decode(String.self, forKey: .routeName)
     }

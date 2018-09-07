@@ -1,14 +1,14 @@
 //
-//  RouteRequest.swift
+//  GraphVisualiztionRequest.swift
 //  BikeRouteFinder
 //
-//  Created by Jan Posz on 29.07.2018.
+//  Created by Jan Posz on 12.08.2018.
 //  Copyright © 2018 agh. All rights reserved.
 //
 
 import Foundation
 
-internal struct RouteRequest: APIRequest {
+internal struct GraphVisualiztionRequest: APIRequest {
     
     typealias ResponseType = [Route]
     
@@ -22,7 +22,7 @@ internal struct RouteRequest: APIRequest {
     }
     
     var path: String {
-        return "/route/address"
+        return "/route/visualize_graph"
     }
     
     var query: String? {
